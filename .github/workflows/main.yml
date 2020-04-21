@@ -1,0 +1,27 @@
+name: "Heart Rate Bot"
+
+on:
+  push:
+    branches:
+      - master
+  schedule:
+    - cron: "0 */2 * * *" # Every two hours
+
+jobs:
+  bot:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '13.x'
+
+    - name: Install NPM dependancies
+      run: npm install
+
+    - name: Run code
+      run: node index
+      env:
+        GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
