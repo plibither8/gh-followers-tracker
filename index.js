@@ -1,4 +1,3 @@
-const path = require('path');
 const {Octokit} = require('@octokit/rest');
 const fetch = require('node-fetch');
 
@@ -7,3 +6,5 @@ const {
 	GIST_ID,
 	GITHUB_TOKEN
 } = process.env;
+
+
