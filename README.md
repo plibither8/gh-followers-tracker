@@ -4,7 +4,7 @@
 
 > Tracking my GitHub following and un-following with notification on Telegram
 
-Checks every two hours (GitHub Actions, cron-based workflow) and notifies me on my GitHub bot.
+Checks every two hours (GitHub Actions, cron-based workflow) and notifies me on my Telgram bot.
 
 Yeah I know this seems a bit creepy but oh well ¯\\\_(ツ)\_/¯.
 
