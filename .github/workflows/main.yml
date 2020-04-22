@@ -1,11 +1,11 @@
-name: "Heart Rate Bot"
+name: "GitHub Follower Tracker"
 
 on:
   push:
     branches:
       - master
   schedule:
-    - cron: "0 */2 * * *" # Every two hours
+    - cron: "0 */6 * * *" # Every two hours
 
 jobs:
   bot:
@@ -24,4 +24,7 @@ jobs:
     - name: Run code
       run: node index
       env:
-        GITHUB_TOKEN: {{ secrets.GITHUB_TOKEN }}
+        GIST_ID: {{ secrets.GIST_ID }}
+        GH_TOKEN: {{ secrets.GH_TOKEN }}
+        TG_BOT_NAME: {{ secrets.TG_BOT_NAME }}
+        TG_BOT_SECRET: {{ secrets.TG_BOT_SECRET }}
