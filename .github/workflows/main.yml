@@ -24,7 +24,7 @@ jobs:
     - name: Run code
       run: node index
       env:
-        GIST_ID: {{ secrets.GIST_ID }}
-        GH_TOKEN: {{ secrets.GH_TOKEN }}
-        TG_BOT_NAME: {{ secrets.TG_BOT_NAME }}
-        TG_BOT_SECRET: {{ secrets.TG_BOT_SECRET }}
+        GIST_ID: ${{ secrets.GIST_ID }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        TG_BOT_NAME: ${{ secrets.TG_BOT_NAME }}
+        TG_BOT_SECRET: ${{ secrets.TG_BOT_SECRET }}
