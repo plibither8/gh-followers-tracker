@@ -6,7 +6,7 @@
 
 Checks every two hours (GitHub Actions, cron-based workflow) and notifies me on my GitHub bot.
 
-Yeah I know this seems a bit creepy but oh well ¯\\_(ツ)_/¯.
+Yeah I know this seems a bit creepy but oh well ¯\\\_(ツ)\_/¯.
 
 ## Usage
 
