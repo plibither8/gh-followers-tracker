@@ -1,4 +1,4 @@
-name: "GitHub Follower Tracker"
+name: "GitHub Followers Tracker"
 
 on:
   push:

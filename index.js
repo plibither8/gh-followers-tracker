@@ -40,7 +40,7 @@ const compareData = (oldData, newData) => ({
 });
 
 const notify = async changes => {
-	let message = '*🔔 GitHub follower list updated!*';
+	let message = '*🔔 GitHub followers list updated!*';
 	if (changes.removed.length > 0) {
 		message += '\n\nUnfollowed:\n';
 		message += changes.removed.map(fol => `• [${fol}](https://github.com/${fol})`).join('\n');
