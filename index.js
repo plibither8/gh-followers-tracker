@@ -39,8 +39,10 @@ const compareData = (oldData, newData) => ({
 	added: newData.filter(fol => oldData.indexOf(fol) === -1)
 });
 
-const notify = async changes => {
+const notify = async (changes, followerCount) => {
 	let message = '*🔔 GitHub followers list updated!*';
+	message += `Number of followers: ${followerCount}`;
+
 	if (changes.removed.length > 0) {
 		message += '\n\nUnfollowed:\n';
 		message += changes.removed.map(fol => `• [${fol}](https://github.com/${fol})`).join('\n');
@@ -80,7 +82,7 @@ const main = async () => {
 	const changes = compareData(oldData, newData);
 	if (changes.removed.length + changes.added.length === 0) return;
 
-	await notify(changes);
+	await notify(changes, newData.length);
 	await putNewData(newData);
 };
 
