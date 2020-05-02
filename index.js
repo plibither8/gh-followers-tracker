@@ -41,7 +41,7 @@ const compareData = (oldData, newData) => ({
 
 const notify = async (changes, followerCount) => {
 	let message = '*🔔 GitHub followers list updated!*';
-	message += `Number of followers: ${followerCount}`;
+	message += `\nNumber of followers: ${followerCount}`;
 
 	if (changes.removed.length > 0) {
 		message += '\n\nUnfollowed:\n';
