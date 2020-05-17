@@ -45,11 +45,11 @@ const notify = async (changes, followerCount) => {
 
 	if (changes.removed.length > 0) {
 		message += '\n\nUnfollowed:\n';
-		message += changes.removed.map(fol => `• [${fol}](https://github.com/${fol})`).join('\n');
+		message += changes.removed.map(fol => `- [${fol}](https://github.com/${fol})`).join('\n');
 	}
 	if (changes.added.length > 0) {
 		message += '\n\nFollowed:\n';
-		message += changes.added.map(fol => `• [${fol}](https://github.com/${fol})`).join('\n');
+		message += changes.added.map(fol => `- [${fol}](https://github.com/${fol})`).join('\n');
 	}
 
 	await fetch(`https://tg.mihir.ch/${TG_BOT_NAME}`, {
