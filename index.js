@@ -1,22 +1,8 @@
 require('dotenv').config()
 
-const { Octokit } = require('@octokit/rest')
 const fetch = require('node-fetch')
 
-// GitHub Gists env variables
-const {
-  GIST_ID,
-  GH_TOKEN,
-  TG_BOT_NAME,
-  TG_BOT_SECRET
-} = process.env
-
-const octokit = new Octokit({ auth: `token ${GH_TOKEN}` }) // Instantiate Octokit
-
-async function getOldData () {
-  const gist = await octokit.gists.get({ gist_id: GIST_ID })
-  return JSON.parse(gist.data.files['gh-followers.json'].content)
-}
+const { TG_BOT_NAME, TG_BOT_SECRET } = process.env
 
 async function getNewData () {
   let newData = []
@@ -70,17 +56,6 @@ async function notify (changes, followerCount) {
   })
 }
 
-async function putNewData (newData) {
-  await octokit.gists.update({
-    gist_id: GIST_ID,
-    files: {
-      'gh-followers.json': {
-        content: JSON.stringify(newData, null, '  ')
-      }
-    }
-  })
-}
-
 async function checkAndUpdate (oldData) {
   console.log('Fetching new data from GitHub...')
   const newData = await getNewData()
@@ -94,7 +69,6 @@ async function checkAndUpdate (oldData) {
   if (delta > 0) {
     console.log('Data changed, notifying and updating to gist...')
     await notify(changes, newData.length)
-    await putNewData(newData)
   } else {
     console.log('Data unchanged')
   }
@@ -103,11 +77,7 @@ async function checkAndUpdate (oldData) {
 }
 
 async function main () {
-  console.log('Fetching old data from gist...')
-  let oldData = await getOldData()
-  console.log('Old data fetched from gist')
-
-  oldData = await checkAndUpdate(oldData)
+  let oldData = await checkAndUpdate([])
   setInterval(async () => {
     oldData = await checkAndUpdate(oldData)
   }, 1200000) // 20 minutes
