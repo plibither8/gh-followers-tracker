@@ -88,4 +88,4 @@ const main = async () => {
   await putNewData(newData)
 };
 
-(async () => await main())()
+main()

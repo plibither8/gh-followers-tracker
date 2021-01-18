@@ -2,5 +2,8 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.0"
+  },
+  "dependencies": {
+    "@octokit/rest": "^18.0.12"
   }
 }
