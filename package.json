@@ -1,9 +1,13 @@
 {
+  "name": "gh-followers-tracker",
+  "module": "src/index.ts",
+  "type": "module",
   "devDependencies": {
-    "dotenv": "^8.2.0",
-    "node-fetch": "^2.6.0"
+    "@cloudflare/workers-types": "^3.14.1",
+    "bun-types": "^0.1.0",
+    "wrangler": "^2.0.24"
   },
   "dependencies": {
-    "@octokit/rest": "^18.0.12"
+    "telegram-format": "^2.1.0"
   }
 }
