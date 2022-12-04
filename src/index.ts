@@ -91,7 +91,7 @@ export default {
       const text = `${format.bold(
         format.escape("🔔 GitHub followers list updated!")
       )}
-${format.escape(`Number of followers: ${341}`)}
+${format.escape(`Number of followers: ${newFollowers.length}`)}
 ${[
   removed.length &&
     `
